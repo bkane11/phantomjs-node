@@ -13,6 +13,27 @@ hostname = system.args[2]
 
 fnwrap = (target) -> -> target.apply this, arguments
 
+# prevent serialization errors in JSON.stringify
+# https://github.com/nathanboktae/mocha-phantomjs/issues/104
+do ->
+  originalStringify = JSON.stringify
+
+  JSON.stringify = (obj) ->
+    seen = []
+    result = originalStringify(obj, (key, val) ->
+      if val instanceof HTMLElement
+        return val.outerHTML
+      if typeof val == 'object'
+        if seen.indexOf(val) >= 0
+          return '[Circular]'
+        seen.push val
+      val
+    )
+    result
+
+  return
+
+
 # Descend into objects with dotted keys
 descend = (op, obj, key, val) ->
   cur = obj
