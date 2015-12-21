@@ -12,6 +12,7 @@ phanta = []
 # @return: ps:object
 startPhantomProcess = (binary, port, hostname, args) ->
   spawn binary, args.concat([
+    # __dirname + '/shim'
     __dirname + '/shim.js'
     port
     hostname

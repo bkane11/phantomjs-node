@@ -1,9 +1,11 @@
 # Require gets overwritten by browserify, so we have to reimplement it from
 # scratch - boo :(
 webpage = core_require('webpage')
+# webpage = require('webpage')
 
 shoe     = require('shoe')
 dnode    = require('dnode')
+# system   = require('system')
 system   = core_require('system')
 
 port = system.args[1]

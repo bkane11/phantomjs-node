@@ -1,8 +1,12 @@
+CoffeeScript = require 'coffee-script'
+run = CoffeeScript.run
 {spawn} = require 'child_process'
 Promise = require 'bluebird'
 
 bin = "./node_modules/.bin"
 sh = "/bin/sh"
+
+CoffeeScript.register()
 
 _runCmd = (prev, current) ->
   prev.then ->
