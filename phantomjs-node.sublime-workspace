@@ -680,11 +680,6 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/Users/Ben/projects/phantomjs-node",
-		"/Users/Ben/projects/phantomjs-node/node_modules"
-	],
 	"file_history":
 	[
 		"/Users/Ben/projects/phantomjs-node/phantom.coffee",
